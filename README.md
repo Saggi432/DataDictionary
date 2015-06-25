@@ -67,7 +67,7 @@ Resolving deltas: 100% (24/24), done.
 Checking connectivity... done.
 
 
-2) Once Complete, in the DataDictionary Directory, please execute the command "mvn spring-boot:run"
+2) Once Complete, in the DataDictionary Directory, please execute the command "mvn spring-boot:run" or you can Import the project into eclipse and select the option to Run as --> "Spring Boot App". I am using Spring tool suite, there should not be much change in eclipse as well.
 
 3) Perform the below test case execution steps ..
 
@@ -81,6 +81,7 @@ Checking connectivity... done.
 
 	http://localhost:8080/put?word=car&description=something%20to%20get%20you%20from%20A%20to%20B
 
+
 	b)/put?word=dog,description=An animal -> "ok"
 
 	This requirement is working as is tested with the below URL on the system.
@@ -91,6 +92,9 @@ Checking connectivity... done.
 	c) /lookup?word=car -> "something to get you from A to B"
 
 	/lookup?word=animal -> "no result"
+        
+	http://localhost:8080/lookup?word=bird
+
 
 	d) /clearAllAndAdd?word=java&word=c++&description=Java can run anywhere&description=C++ is a hard language -> "ok"
 
@@ -101,8 +105,11 @@ Checking connectivity... done.
 	http://localhost:8080/clearAndAdd?word=hello&description=greeting&word=day&description=monday
 
 
-/sortedDictionary -> "Java, C++, bird"
+	e) /sortedDictionary -> "Java, C++, bird"
+	
+	Below is the sortedDictionary execution.
 
+	http://localhost:8080/SortedDictionary
 
 
  

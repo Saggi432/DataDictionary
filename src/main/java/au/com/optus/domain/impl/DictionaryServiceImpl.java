@@ -44,30 +44,33 @@ public class DictionaryServiceImpl implements DictionaryService {
 	}
 	
 	public String sortedList() {
-		
-		String finalString = "\n";
-		
-		ArrayList<String> sortedList = new ArrayList<String>();
-		for (int i = 0; i < keys.length; i++) {
-			sortedList.add((String) values[i]);
-		}
-		
-		if (sortedList.isEmpty()) {
-			LOGGER.info("No values found in the dictionary");
-			return null;
-		}
-		
-		for (String str : sortedList) {
-			
-			if (str != null) {
-			finalString += str;
-			finalString += ",";
-			}
-		}
-		
-		return finalString;
-	}
-
+        
+        	String finalString = "\n";
+        
+        	ArrayList<String> sortedList = new ArrayList<String>();
+        	for (int i = 0; i < keys.length; i++) {
+            		if(null != keys[i]) {
+                	sortedList.add((String) keys[i]);
+            		}
+        	}
+        
+        	if (sortedList.isEmpty()) {
+            		LOGGER.info("No values found in the dictionary");
+            		return null;
+        	}
+        
+        	Collections.sort(sortedList, Collections.reverseOrder());
+        
+        	for (String str : sortedList) {
+            
+            	if (str != null) {
+            		finalString += str;
+            		finalString += ",";
+            	}
+              }
+        
+        	return finalString;
+        }
 
 	public void clear() {
 		for (int i = 0; i < keys.length; i++) {

@@ -6,5 +6,7 @@ public interface DictionaryService {
 	public Object get(Object key);
 
 	public void clear();
+  
+        public String sortedList();
 
 }

@@ -86,4 +86,16 @@ public class DictionaryController {
 
 		return "ok";
 	}
+
+
+   	@RequestMapping(value = "/SortedDictionary")
+        @ResponseBody
+        public String SortedDictionary() {
+                LOGGER.info("In the sorted Dictionary Method.");
+
+                return dictionaryService.sortedList();
+        }
+
+
+
 }

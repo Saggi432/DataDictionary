@@ -29,7 +29,12 @@ public class DictionaryController {
 	private Object tempDescription;
 
 
-	//Mapping to get the initial Setup
+
+     /**
+	Method:	Mapping to the initial Setup
+     * 
+     * @return String
+     */
 
 	@RequestMapping("/")
 	public String greeting() {
@@ -37,8 +42,13 @@ public class DictionaryController {
 		return "Hi Optus . Greetings from Spring Boot!";
 	}
 
-	// The lookup mapping to search the word and provide the 
-	// description
+
+	/**
+     * Method :lookup mapping to search the word and provide description
+     * 
+     * @param word
+     * @return string
+     */
 
 	@RequestMapping(value = "/lookup", method = RequestMethod.GET)
 	@ResponseBody
@@ -51,8 +61,13 @@ public class DictionaryController {
 		return xs;
 	}
 
-	// The put mapping which enables to insert the
-	//word with the description
+	/**
+     * Method : put mapping to insert the word with description
+     * 
+     * @param word
+     * @param description
+     * @return string
+     */
 
 	@RequestMapping(value = "/put", method = RequestMethod.GET)
 	@ResponseBody
@@ -64,7 +79,14 @@ public class DictionaryController {
 		return "ok";
 	}
 
-        //Helper Function for the put lookup
+
+	/**
+     * Method : Helper Function for the put lookup
+     * 
+     * @param none
+     * @param none
+     * @return none
+     */
 
 	private void putInDictionary() {
 		LOGGER.info("Put key {} and  value {} in dictionary ",tempWord , tempDescription);
@@ -72,7 +94,14 @@ public class DictionaryController {
 	}
 
 
-	//The clear mapping to clear the dictionary 
+
+	/**
+     * Method : The clear mapping to clear the dictionary
+     * 
+     * @param none
+     * @param none
+     * @return String
+     */
 	//contents
 
 	@RequestMapping(value = "/clear", method = RequestMethod.GET)
@@ -83,7 +112,14 @@ public class DictionaryController {
 		return "ok";
 	}
 
-	//The clear and add mapping to clear and add the values
+
+	/**
+     * Method : The clear and mapping to clear and add the values 
+     * 
+     * @param word
+     * @param description
+     * @return String
+     */
 
 	@RequestMapping(value = "/clearAndAdd")
 	@ResponseBody
@@ -105,8 +141,13 @@ public class DictionaryController {
 	}
 
 	
-       // The sorted dictionary mapping which provides
-       // the values in a reverse sorted way
+	/**
+     * Method : The sorted dictionary to provide the values in reverse order.
+     * 
+     * @param none
+     * @param none
+     * @return String
+     */
 
 
    	@RequestMapping(value = "/SortedDictionary")

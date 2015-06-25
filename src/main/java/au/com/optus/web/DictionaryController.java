@@ -28,11 +28,17 @@ public class DictionaryController {
 	private Object tempWord;
 	private Object tempDescription;
 
+
+	//Mapping to get the initial Setup
+
 	@RequestMapping("/")
 	public String greeting() {
 		LOGGER.info("Hello All");
 		return "Hi Optus . Greetings from Spring Boot!";
 	}
+
+	// The lookup mapping to search the word and provide the 
+	// description
 
 	@RequestMapping(value = "/lookup", method = RequestMethod.GET)
 	@ResponseBody
@@ -45,6 +51,9 @@ public class DictionaryController {
 		return xs;
 	}
 
+	// The put mapping which enables to insert the
+	//word with the description
+
 	@RequestMapping(value = "/put", method = RequestMethod.GET)
 	@ResponseBody
 	public String putDescription(@RequestParam String word,
@@ -55,10 +64,16 @@ public class DictionaryController {
 		return "ok";
 	}
 
+        //Helper Function for the put lookup
+
 	private void putInDictionary() {
 		LOGGER.info("Put key {} and  value {} in dictionary ",tempWord , tempDescription);
 		dictionaryService.put(tempWord, tempDescription);
 	}
+
+
+	//The clear mapping to clear the dictionary 
+	//contents
 
 	@RequestMapping(value = "/clear", method = RequestMethod.GET)
 	@ResponseBody
@@ -67,6 +82,8 @@ public class DictionaryController {
 		dictionaryService.clear();
 		return "ok";
 	}
+
+	//The clear and add mapping to clear and add the values
 
 	@RequestMapping(value = "/clearAndAdd")
 	@ResponseBody
@@ -86,6 +103,10 @@ public class DictionaryController {
 
 		return "ok";
 	}
+
+	
+       // The sorted dictionary mapping which provides
+       // the values in a reverse sorted way
 
 
    	@RequestMapping(value = "/SortedDictionary")

@@ -1,5 +1,7 @@
 package au.com.optus.domain.impl;
 
+import java.util.ArrayList;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -40,6 +42,32 @@ public class DictionaryServiceImpl implements DictionaryService {
 		LOGGER.info("No values found in the dictionary for key {} ", key);
 		return null;
 	}
+	
+	public String sortedList() {
+		
+		String finalString = "\n";
+		
+		ArrayList<String> sortedList = new ArrayList<String>();
+		for (int i = 0; i < keys.length; i++) {
+			sortedList.add((String) values[i]);
+		}
+		
+		if (sortedList.isEmpty()) {
+			LOGGER.info("No values found in the dictionary");
+			return null;
+		}
+		
+		for (String str : sortedList) {
+			
+			if (str != null) {
+			finalString += str;
+			finalString += ",";
+			}
+		}
+		
+		return finalString;
+	}
+
 
 	public void clear() {
 		for (int i = 0; i < keys.length; i++) {
@@ -52,5 +80,6 @@ public class DictionaryServiceImpl implements DictionaryService {
 	public synchronized void setValue(int i, Object value) {
 		values[i] = value;
 	}
+	
 
 }

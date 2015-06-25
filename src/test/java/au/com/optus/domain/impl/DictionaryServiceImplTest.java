@@ -61,19 +61,15 @@ public class DictionaryServiceImplTest {
 	}
 	@Test
     public void test_sorted() {
-		//Arrange
-		dictionaryService.put("Java", "Good Language");
-		dictionaryService.put("C", "Good Old Language");
-		dictionaryService.put(".Net", "Microsoft Language");
-		dictionaryService.put("COBOL", "Very old Language");
+        //Arrange
+        dictionaryService.put("Java", "Good Language");
+        dictionaryService.put("C", "Good Old Language");
+        dictionaryService.put(".Net", "Microsoft Language");
+        dictionaryService.put("COBOL", "Very old Language");
 
-		//Act
-		dictionaryService.clear();
-		
-		//Assert
-		Assert.assertNull(dictionaryService.get("Java"));
-		Assert.assertNull(dictionaryService.get("C"));
-		Assert.assertNull(dictionaryService.get(".Net"));
-		Assert.assertNull(dictionaryService.get("COBOL"));
-	}
+        //Act
+        String sorted = dictionaryService.sortedList();
+        
+        Assert.assertTrue("Java,COBOL,C,.Net,".equals(sorted));
+    }
 }

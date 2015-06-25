@@ -70,7 +70,7 @@ public class DictionaryController {
 
 	@RequestMapping(value = "/clearAndAdd")
 	@ResponseBody
-	public String clearAndPut(@RequestParam String[] word,
+	public String clearAndAdd(@RequestParam String[] word,
 			@RequestParam String[] description) {
 		LOGGER.info("Clearing keys.");
 		LOGGER.info("word lenghth " + word.length);

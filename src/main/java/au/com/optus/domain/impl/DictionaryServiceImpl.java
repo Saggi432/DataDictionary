@@ -17,6 +17,9 @@ public class DictionaryServiceImpl implements DictionaryService {
 	private Object[] keys = new Object[20];
 	private Object[] values = new Object[20];	
 	
+	// The put function, which inserts the 
+	// word and corresponding description 
+
 	public void put(Object key, Object value) {
 		LOGGER.info("Put key {} - value {} ", key , value);
 		for (int i = 0; i < keys.length; i++) {
@@ -31,6 +34,9 @@ public class DictionaryServiceImpl implements DictionaryService {
 			}
 		}
 	}
+
+	// The get function to retrieve the 
+	// values for a given key
 	
 	public Object get(Object key) {
 		LOGGER.info("Getting  value  for key {} ", key);
@@ -43,6 +49,9 @@ public class DictionaryServiceImpl implements DictionaryService {
 		LOGGER.info("No values found in the dictionary for key {} ", key);
 		return null;
 	}
+
+	// The SortedList function used to 
+	// sort the keys and reverse the order 
 	
 	public String sortedList() {
         
@@ -73,6 +82,11 @@ public class DictionaryServiceImpl implements DictionaryService {
         	return finalString;
         }
 
+       
+
+       // The clear method erases the  current
+       // contents of keys and values and assigns to null
+
 	public void clear() {
 		for (int i = 0; i < keys.length; i++) {
 			keys[i] = null;
@@ -80,6 +94,9 @@ public class DictionaryServiceImpl implements DictionaryService {
 		}
 		LOGGER.info("cleared  {} no of items from dictionary", keys.length);
 	}
+
+	//Synchronized method of setValue
+
 	
 	public synchronized void setValue(int i, Object value) {
 		values[i] = value;

@@ -31,7 +31,7 @@ public class DictionaryController {
 	@RequestMapping("/")
 	public String greeting() {
 		LOGGER.info("Hello All");
-		return "Hi Optus . Greetings from Spring Boot!";
+		return "Hi Please use word and Description combination Lookup, Put, ClearAndAdd and SortedDictionary are supported!";
 	}
 
 	@RequestMapping(value = "/lookup", method = RequestMethod.GET)
@@ -68,7 +68,7 @@ public class DictionaryController {
 		return "ok";
 	}
 
-	@RequestMapping(value = "/clearAndAdd")
+	@RequestMapping(value = "/clearAndAdd", method = RequestMethod.GET)
 	@ResponseBody
 	public String clearAndPut(@RequestParam String[] word,
 			@RequestParam String[] description) {
@@ -84,6 +84,15 @@ public class DictionaryController {
 			dictionaryService.put(word[i], description[i]);
 		}
 
-		return "ok";
+		return "ok";	
+	}
+
+	
+	@RequestMapping(value = "/SortedDictionary")
+	@ResponseBody
+	public String SortedDictionary() {
+		LOGGER.info("In the sorted Dictionary Method.");
+		
+		return dictionaryService.sortedList();
 	}
 }

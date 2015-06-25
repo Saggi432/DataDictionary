@@ -59,4 +59,21 @@ public class DictionaryServiceImplTest {
 		Assert.assertNull(dictionaryService.get(".Net"));
 		Assert.assertNull(dictionaryService.get("COBOL"));
 	}
+	@Test
+    public void test_sorted() {
+		//Arrange
+		dictionaryService.put("Java", "Good Language");
+		dictionaryService.put("C", "Good Old Language");
+		dictionaryService.put(".Net", "Microsoft Language");
+		dictionaryService.put("COBOL", "Very old Language");
+
+		//Act
+		dictionaryService.clear();
+		
+		//Assert
+		Assert.assertNull(dictionaryService.get("Java"));
+		Assert.assertNull(dictionaryService.get("C"));
+		Assert.assertNull(dictionaryService.get(".Net"));
+		Assert.assertNull(dictionaryService.get("COBOL"));
+	}
 }

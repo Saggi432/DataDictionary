@@ -70,6 +70,10 @@ public class DictionaryServiceImplTest {
         //Act
         String sorted = dictionaryService.sortedList();
         
-        Assert.assertTrue("Java,COBOL,C,.Net,".equals(sorted));
+        System.out.println("The sorted String is" + sorted);
+        
+        String Sort1 = sorted.replaceAll("\\s+","");                  
+        
+        Assert.assertTrue("Java,COBOL,C,.Net,".equals(Sort1));
     }
 }

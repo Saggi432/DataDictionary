@@ -98,7 +98,7 @@ public class DictionaryServiceImpl implements DictionaryService {
             	}
               }
         
-        	return finalString;
+        	return finalString.replaceAll("\\s+","");
         }
 
        
